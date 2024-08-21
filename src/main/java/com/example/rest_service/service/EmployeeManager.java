@@ -5,6 +5,8 @@ import com.example.rest_service.entity.Employees;
 import lombok.Getter;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @Getter
 public class EmployeeManager {
@@ -20,5 +22,14 @@ public class EmployeeManager {
         employees.addEmployee(new Employee(2, "bruce", "barner", "bruce.barner@outlook.com", "Dev ops"));
         employees.addEmployee(new Employee(3, "peter", "parker", "peter.parker@outlook.com", "Data Analyst"));
         employees.addEmployee(new Employee(4, "stephen", "strange", "stephen.strange@gmail.com", "UX Designer"));
+    }
+
+    public String addEmployee(Employee employee) {
+        employees.addEmployee(employee);
+        return "Employee added successfully";
+    }
+
+    public List<Employee> getAllEmployees() {
+        return employees.getEmployeesList();
     }
 }
